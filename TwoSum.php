@@ -34,12 +34,21 @@ class TwoSum
     }
 
     /**
-     * 排序+双指针
+     * hashmap
      *
     */
     function sortSum($nums,$target)
     {
+        $temp = array_flip($nums);
 
+        foreach ($nums as $key=>$value)
+        {
+            $j = $temp[$target-$value];
+            if(!empty($j) && $key != $j)
+            {
+                return [$key,$j];
+            }
+        }
     }
 
 }
